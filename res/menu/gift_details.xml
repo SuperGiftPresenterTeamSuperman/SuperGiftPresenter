@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.supergiftpresenter.GiftDetailsActivity" >
+
+    <item
+        android:id="@+id/edit_gift_menu_button"
+        android:orderInCategory="100"
+        android:title="@string/edit_gift_text"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/delete_gift_menu_button"
+        android:orderInCategory="100"
+        android:title="@string/delete_gift_text"
+        app:showAsAction="never"/>
+</menu>

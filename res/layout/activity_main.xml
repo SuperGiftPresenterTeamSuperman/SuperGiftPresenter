@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -6,11 +6,27 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.supergiftpresenter.MainActivity" >
+    tools:context="com.supergiftpresenter.MainActivity"
+    android:orientation="vertical"
+    android:background="#d2ff52" >
 
     <TextView
+        android:id="@+id/welcome_sign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_marginTop="16dp"
+        android:text="@string/welcome_text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-</RelativeLayout>
+    <GridView 
+    android:id="@+id/catalog_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="#91e842" 
+    android:numColumns="2"
+    android:verticalSpacing="10dp"
+    android:horizontalSpacing="10dp"
+    android:gravity="center">  
+    </GridView>
+
+</LinearLayout>

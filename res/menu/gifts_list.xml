@@ -1,12 +1,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.supergiftpresenter.GiftsViewActivity" >
+    tools:context="com.supergiftpresenter.GiftsListActivity" >
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/add_gift_menu_button"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/add_gift_text"
         app:showAsAction="never"/>
 
 </menu>

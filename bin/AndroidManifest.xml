@@ -10,7 +10,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/supergift"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
@@ -32,8 +32,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".GiftsViewActivity"
-            android:label="@string/title_activity_gifts_view" >
+            android:name=".GiftsListActivity"
+            android:label="@string/gifts_list_title" >
         </activity>
     </application>
 
