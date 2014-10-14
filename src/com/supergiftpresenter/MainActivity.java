@@ -1,16 +1,34 @@
 package com.supergiftpresenter;
 
 import android.support.v7.app.ActionBarActivity;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
 
+	private String username;
+	private Context context = this;
+	
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		Intent intent = getIntent();
+	    Bundle bundle = intent.getExtras();
+	    if(bundle != null){
+	        username = bundle.getString("username");
+	    } else {
+	    	username = "Unknown";
+	    }
+	    
+		Toast.makeText(context, username + " logged successfully", Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
