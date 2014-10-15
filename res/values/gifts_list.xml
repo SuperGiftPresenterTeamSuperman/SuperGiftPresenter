@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="category_title_text" >Category Title</string>
     <string name="add_gift_text">Add Gift</string>
     <string name="gifts_list_title">SuperGift Suggestions</string>
+    <string name="catalog_missing_avatar"> Missing Catalogue Avatar</string>
+    
 </resources>

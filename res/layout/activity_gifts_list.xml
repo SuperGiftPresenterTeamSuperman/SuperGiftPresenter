@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -6,11 +6,35 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.supergiftpresenter.GiftsListActivity" >
+    tools:context="com.supergiftpresenter.GiftsListActivity"
+    android:orientation="vertical"
+    android:background="#d2ff52" >
+
+    <ImageView
+        android:id="@+id/category_avatar"
+        android:layout_width="86dp"
+        android:layout_height="54dp"
+        android:src="@drawable/supergift" />"
 
     <TextView
+        android:id="@+id/category_title_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/category_title_text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-</RelativeLayout>
+    <ListView
+        android:id="@+id/catalog_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#91e842"
+        android:gravity="center"
+        android:horizontalSpacing="10dp"
+        android:numColumns="2"
+        android:verticalSpacing="10dp" >
+    </ListView>
+
+</LinearLayout>
+

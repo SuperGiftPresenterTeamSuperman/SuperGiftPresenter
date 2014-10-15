@@ -3,8 +3,11 @@ package com.supergiftpresenter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
+
+import com.supergiftpresenter.categories.CategoriesContainer;
 import com.supergiftpresenter.categories.CategoriesGridViewAdapter;
 import com.supergiftpresenter.categories.Category;
+import com.supergiftpresenter.gifts.GiftsContainer;
 
 import android.support.v7.app.ActionBarActivity;
 import android.annotation.SuppressLint;
@@ -19,14 +22,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class MainActivity extends ActionBarActivity {
-
+	public GiftsContainer giftsContainer;
+	public CategoriesContainer categoriesContainer;
+	
 	private String username;
 	private Context context = this;
 	private GridView grid;
+	private TextView welcome;
 	CategoriesGridViewAdapter adapter;
 	
 	@SuppressLint("NewApi")
@@ -34,21 +41,28 @@ public class MainActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		categoriesContainer = CategoriesContainer.getInstance();
+		giftsContainer = GiftsContainer.getInstance();
 		
 		Intent intent = getIntent();
 	    Bundle bundle = intent.getExtras();
 	    if(bundle != null){
 	        username = bundle.getString("username");
 	    } 
-
+	    // TODO remove when validation for login is ok
 	    if (username == null || username.isEmpty()) {
 	    	username = "Unknown";
 		}
 	    
-		Toast.makeText(context, username + " logged successfully", Toast.LENGTH_SHORT).show();
+	    categoriesContainer.setUsername(username);
+		Toast.makeText(context, categoriesContainer.getUsername() + " logged successfully", Toast.LENGTH_SHORT).show();
 	
+		welcome = (TextView) this.findViewById(R.id.welcome_sign);
+		welcome.setText("Welcome to SuperGift " + username);
+		
 		grid = (GridView)this.findViewById(R.id.catalog_view);	
-		adapter = new CategoriesGridViewAdapter(this, getAllCategories());
+		Category[] array = categoriesContainer.getAllCategories();
+		adapter = new CategoriesGridViewAdapter(this, array);
 		grid.setAdapter(adapter);
 		
 		grid.setOnItemClickListener(new OnItemClickListener() {
@@ -59,7 +73,7 @@ public class MainActivity extends ActionBarActivity {
 				
 				Category category = (Category)adapter.getItem(position);
 				Intent intent = new Intent(MainActivity.this, GiftsListActivity.class);
-				intent.putExtra("category", (Serializable)category);
+				categoriesContainer.setCategory(category);
 				startActivity(intent);
 			}
 		});
@@ -86,21 +100,5 @@ public class MainActivity extends ActionBarActivity {
 		}
 		
 		return super.onOptionsItemSelected(item);
-	}
-	
-	public Category[] getAllCategories(){
-		return new Category[] {
-			new Category("anniversary", "Being together for a long time"),
-			new Category("birthday", "The day you were brought to life"),
-			new Category("christening", "Introdusing a newborn to the lord"),
-			new Category("christmas", "The birthday of the lord's son"),
-			new Category("engagement", "Celibration event when someone decides to marry"),
-			new Category("graduation", "Completion of some educational degree"),
-			new Category("nameday", "Party in the name of the named ONE"),
-			new Category("newyear", "The beginning of a new year celebration"),
-			new Category("party", "Casual implovised party"),
-			new Category("promotion", "Advancement of someone's rank or position"),
-			new Category("wedding", "Two people binding in marriage")
-	    };  
 	}
 }

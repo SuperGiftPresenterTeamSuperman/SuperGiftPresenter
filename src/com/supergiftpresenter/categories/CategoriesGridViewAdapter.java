@@ -46,6 +46,10 @@ public class CategoriesGridViewAdapter extends BaseAdapter{
 		Category category = categoriesData[position];
 		Log.d("CATEGORIES VIEW", category.getTitle());
 		Bitmap categoryAvatar = this.getBitmapFromAssests(category.getTitle() + ".jpg");
+		if (categoryAvatar == null) {
+			categoryAvatar = this.getBitmapFromAssests("default.jpg");
+		}
+		category.setPicture(categoryAvatar); // TODO CHECK IF PICTURE IS ATTACHED
 		
 		ImageView imageView;
         if (view == null) {

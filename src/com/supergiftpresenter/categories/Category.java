@@ -5,18 +5,22 @@ import java.io.InputStream;
 import java.io.Serializable;
 
 import android.R;
+import android.R.string;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 public class Category implements Serializable{
-	private static final long serialVersionUID = 1L;
-	private String title;
-	private String details;
+	private static long categoriesCount = 0;
 	
-	public Category(String title, String details){
+	private String id;
+	private String title;
+	private Bitmap picture;
+	
+	public Category(String title){
+		this.setId(String.valueOf(categoriesCount));
+		categoriesCount++;
 		this.setTitle(title);
-		this.setDetails(details);
 	}
 
 	public String getTitle() {
@@ -27,11 +31,19 @@ public class Category implements Serializable{
 		this.title = title;
 	}
 
-	public String getDetails() {
-		return details;
+	public Bitmap getPicture() {
+		return picture;
 	}
 
-	private void setDetails(String details) {
-		this.details = details;
+	public void setPicture(Bitmap picture) {
+		this.picture = picture;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 }

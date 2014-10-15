@@ -1,21 +1,40 @@
 package com.supergiftpresenter;
 
+import com.supergiftpresenter.categories.CategoriesContainer;
+import com.supergiftpresenter.categories.Category;
+import com.supergiftpresenter.gifts.GiftsContainer;
+
 import android.support.v7.app.ActionBarActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class GiftsListActivity extends ActionBarActivity {
 	private Context context = this;
+	private Category currentCategory;
+	private ImageView categoryAvatar;
+	private TextView categoryTitle;
+	
+	public GiftsContainer giftsContainer;
+	public CategoriesContainer categoriesContainer;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_gifts_list);
-		
-		Toast.makeText(context, "All activities listed", Toast.LENGTH_LONG).show();
+		categoriesContainer = CategoriesContainer.getInstance();
+		giftsContainer = GiftsContainer.getInstance();
+		currentCategory = categoriesContainer.getCategory();
+		categoryTitle = (TextView) findViewById(R.id.category_title_input);
+		categoryTitle.setText(" Category " + currentCategory.getTitle());
+		categoryAvatar = (ImageView) findViewById(R.id.category_avatar);
+		categoryAvatar.setImageBitmap(currentCategory.getPicture());
+		Toast.makeText(context, currentCategory.getTitle() + "  "+ categoriesContainer.getUsername(), Toast.LENGTH_LONG).show();
 	}
 
 	@Override
