@@ -35,6 +35,7 @@
             android:name=".GiftsListActivity"
             android:label="@string/gifts_list_title" >
         </activity>
+        <activity android:name="RegisterActivity"></activity>
     </application>
 
 </manifest>

@@ -19,7 +19,7 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		db.execSQL("create table users (_id integer primary key autoincrement, " + "username text not null, " + "password text not null);");
+		db.execSQL("create table USERS (_id integer primary key autoincrement, " + "USERNAME text not null, " + "PASSWORD text not null);");
 		Log.d("D1", "CREATED");
 
 	}
@@ -32,6 +32,7 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
 
 	public void open() throws SQLException {
 		db = getWritableDatabase();
+		
 	}
 
 	public void close() {
