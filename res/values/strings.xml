@@ -7,5 +7,6 @@
     <string name="title_activity_gifts_view">GiftsViewActivity</string>
     <string name="categories_title">SuperGift Categories</string>
     <string name="title_activity_gifts_list">GiftsListActivity</string>
+    <string name="title_activity_image_touch">ImageTouchActivity</string>
 
 </resources>
