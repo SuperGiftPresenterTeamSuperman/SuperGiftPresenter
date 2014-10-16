@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+     android:background="@drawable/present">
 
     <TextView
         android:id="@+id/username"
@@ -12,15 +13,6 @@
         android:paddingTop="20dp"
         android:text="@string/username_register"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <EditText
-        android:id="@+id/usernameBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/username"
-        android:ems="10" />
 
     <TextView
         android:id="@+id/password"
@@ -52,24 +44,29 @@
         android:text="@string/reg_button_register" />
 
     <EditText
-        android:id="@+id/confirmBox"
-        android:layout_width="wrap_content"
+        android:id="@+id/usernameBox"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/confirm"
+        android:layout_below="@+id/username"
+        android:layout_centerHorizontal="true"
         android:ems="10" />
 
     <EditText
         android:id="@+id/passwordBox"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignLeft="@+id/usernameBox"
         android:layout_below="@+id/password"
-        android:ems="10" >
+        android:ems="10"
+        android:inputType="textPassword" />
 
-        <requestFocus />
-    </EditText>
+    <EditText
+        android:id="@+id/confirmBox"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/passwordBox"
+        android:layout_below="@+id/confirm"
+        android:ems="10"
+        android:inputType="textPassword" />
 
 </RelativeLayout>
