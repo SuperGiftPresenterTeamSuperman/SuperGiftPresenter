@@ -1,6 +1,8 @@
 package com.supergiftpresenter;
 
 import android.support.v7.app.ActionBarActivity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.os.Bundle;
@@ -101,6 +103,19 @@ public class ImageTouchActivity extends ActionBarActivity implements OnTouchList
                 if(duration<= MAX_DURATION)
                 {
                     Toast.makeText(ImageTouchActivity.this, "double tap",Toast.LENGTH_LONG).show();
+                    new AlertDialog.Builder(this)
+                    .setIcon(R.drawable.supergift_icon)
+                    .setTitle("Gift Preview")
+                    .setMessage("Exit Preview?")
+                    .setPositiveButton("Yes",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog,
+                                        int which) {
+                                    finish();
+                                }
+
+                            }).setNegativeButton("No", null).show();
                 }
                 clickCount = 0;
                 duration = 0;
