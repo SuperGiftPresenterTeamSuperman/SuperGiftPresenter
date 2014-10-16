@@ -1,11 +1,100 @@
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/gift_detail"
-    style="?android:attr/textAppearanceLarge"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    android:textIsSelectable="true"
     tools:context="com.supergiftpresenter.GiftDetailFragment"
-    android:background="#d2ff52" />
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="#d2ff52">
+    
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:padding="16dp" 
+	    android:divider="?android:attr/dividerVertical"
+		android:orientation="vertical"
+		android:gravity="start"
+		android:layout_marginLeft="20dp"
+		android:layout_marginStart="20dp">
+	    
+	    <TextView 
+	    android:id="@+id/gift_detail_info"
+	    style="?android:attr/textAppearanceLarge"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:padding="16dp"
+	    android:text = "@string/details_no_info_text"
+	    android:textIsSelectable="true" />
+	    
+	    <TextView 
+	    android:id="@+id/gift_detail_author"
+	    style="?android:attr/textAppearanceLarge"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:padding="16dp"
+	    android:text = "@string/details_no_author_text"
+	    android:textIsSelectable="true" />
+	    
+        <TextView 
+	    android:id="@+id/gift_detail_title"
+	    style="?android:attr/textAppearanceLarge"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:padding="16dp"
+	    android:text = "@string/details_no_title_text"
+	    android:textIsSelectable="true" />
+        
+        <TextView 
+	    android:id="@+id/gift_detail_description"
+	    style="?android:attr/textAppearanceLarge"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:padding="16dp"
+	    android:text = "@string/details_no_description_text"
+	    android:textIsSelectable="true" />
+        
+        <TextView 
+	    android:id="@+id/gift_detail_address"
+	    style="?android:attr/textAppearanceLarge"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:padding="16dp"
+	    android:text = "@string/details_no_address_text"
+	    android:textIsSelectable="true" />
+        
+        <TextView 
+	    android:id="@+id/details_no_image"
+	    style="?android:attr/textAppearanceLarge"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:padding="16dp"
+	    android:text = "@string/details_no_image_text"
+	    android:textIsSelectable="true" />
+        
+        <Button
+            android:id="@+id/detail_image_button"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/details_image_button_text"
+     		android:onClick="loadGiftImage"
+        	android:visibility="gone" ></Button>
+        
+        <TextView 
+	    android:id="@+id/details_no_location"
+	    style="?android:attr/textAppearanceLarge"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:padding="16dp"
+	    android:text = "@string/details_no_location_text"
+	    android:textIsSelectable="true" />
+        
+        <Button
+            android:id="@+id/detail_location_button"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+			android:text="@string/details_location_button_text"
+     		android:onClick="loadLocationOnGps"
+     		android:visibility="gone"></Button>
+	</LinearLayout>
+</ScrollView>
 

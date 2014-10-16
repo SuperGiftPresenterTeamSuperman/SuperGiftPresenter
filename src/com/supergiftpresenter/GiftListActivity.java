@@ -98,7 +98,7 @@ public class GiftListActivity extends FragmentActivity implements
 			// fragment transaction.
 			Bundle arguments = new Bundle();
 			arguments.putString(GiftDetailFragment.ARG_ITEM_ID, id);
-			GiftDetailFragment fragment = new GiftDetailFragment();
+			GiftDetailFragment fragment = new GiftDetailFragment(context);
 			fragment.setArguments(arguments);
 			getSupportFragmentManager().beginTransaction()
 					.replace(R.id.gift_detail_container, fragment).commit();

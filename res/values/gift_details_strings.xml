@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    
+    <string name="details_location_button_text" > See Map Location </string>
+    <string name="details_no_location_text" > No Location Available</string>
+    
+    <string name="details_image_button_text" > See Available Picture </string>
+    <string name="details_no_image_text" > No Picture Available</string>
+    
+    <string name="details_no_info_text" > No Info Available</string>
+    <string name="details_no_address_text" > No Address Available</string>
+    <string name="details_no_title_text" > No Title Available</string>
+    <string name="details_no_description_text" > No Description Available</string>
+    <string name="details_no_author_text" > No Author Available</string>
+    
     <string name="edit_gift_text" >Edit</string>
     <string name="delete_gift_text">Delete</string>
 </resources>

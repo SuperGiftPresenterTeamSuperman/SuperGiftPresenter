@@ -26,8 +26,8 @@ public class RandomGiftGenerator {
 	
 	public Gift generateGift(Category category) {
 		String title = generateString(10);
-		String description = generateString(35);;
-		String author = generateString(10);;
+		String description = generateString(35);
+		String author = generateString(10);
 		return new Gift(title, description, author, category);
 	}
 	

@@ -1,10 +1,12 @@
 package com.supergiftpresenter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 /**
  * An activity representing a single Gift detail screen. This activity is only
@@ -15,7 +17,8 @@ import android.view.MenuItem;
  * a {@link GiftDetailFragment}.
  */
 public class GiftDetailActivity extends ActionBarActivity {
-
+	private Context context = this;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -39,7 +42,7 @@ public class GiftDetailActivity extends ActionBarActivity {
 			Bundle arguments = new Bundle();
 			arguments.putString(GiftDetailFragment.ARG_ITEM_ID, getIntent()
 					.getStringExtra(GiftDetailFragment.ARG_ITEM_ID));
-			GiftDetailFragment fragment = new GiftDetailFragment();
+			GiftDetailFragment fragment = new GiftDetailFragment(context);
 			fragment.setArguments(arguments);
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.gift_detail_container, fragment).commit();

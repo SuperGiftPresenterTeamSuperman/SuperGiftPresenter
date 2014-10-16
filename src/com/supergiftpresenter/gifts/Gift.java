@@ -14,6 +14,7 @@ public class Gift {
 	private String title;
 	private String description;
 	private String author;
+	private String address;
 	private Category category;
 	private Bitmap picture;
 	private Location location;
@@ -99,7 +100,19 @@ public class Gift {
 		this.id = id;
 	}
 	
-	public String toString() {
+	public String getGiftDescription() {
 		return String.format(" Id: %9s /n Title: %s /n Description: %s /n ", this.getId(), this.getTitle(), this.getDescription());
+	}
+	
+	public String toString() {
+		return String.format(" Gift Title: %s ",this.getTitle());
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 }

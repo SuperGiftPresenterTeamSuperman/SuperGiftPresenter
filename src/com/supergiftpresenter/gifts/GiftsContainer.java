@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+import android.graphics.BitmapFactory;
+
+import com.supergiftpresenter.R;
 import com.supergiftpresenter.categories.CategoriesContainer;
 import com.supergiftpresenter.categories.Category;
 
@@ -75,8 +78,12 @@ public class GiftsContainer {
     	return "OK";
     }
     
+    public Gift getGiftById(String id) {
+    	return giftsMap.get(id);
+    }
+    
     public ArrayList<Gift> getGifts () {
-    	return this.giftsList;
+    	return giftsList;
     }
     
     public Gift[] getAllGifts() {
@@ -122,6 +129,7 @@ public class GiftsContainer {
 			int index = randomGen.nextInt(categoriesCount);
 			Category category = categories.get(index);
 			Gift gift = generator.generateGift(category);
+			
 			giftsList.add(gift);
 			// TODO refactor
 			giftsMap.put(gift.getId(), gift);
