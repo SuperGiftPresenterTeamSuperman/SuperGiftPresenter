@@ -7,7 +7,8 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="21" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -49,6 +50,10 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.supergiftpresenter.GiftListActivity" />
+        </activity>
+        <activity
+            android:name=".AddGiftActivity"
+            android:label="@string/title_activity_add_gift" >
         </activity>
     </application>
 

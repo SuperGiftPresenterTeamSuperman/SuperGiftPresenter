@@ -70,6 +70,7 @@ public class GiftDetailFragment extends Fragment implements OnClickListener {
 		rootView = inflater.inflate(R.layout.fragment_gift_detail, container, false);
 		initializeViews(rootView);
 		if (mItem != null) {
+			// TODO change if has picture
 			mItem.setPicture(BitmapFactory.decodeResource(getResources(), R.drawable.supergift));
 			Location location = mItem.getLocation();
 			Bitmap image = mItem.getPicture();

@@ -10,5 +10,6 @@
     <string name="title_activity_image_touch">ImageTouchActivity</string>
     <string name="title_gift_list">Gifts</string>
     <string name="title_gift_detail">Gift Detail</string>
+    <string name="title_activity_add_gift">AddGiftActivity</string>
 
 </resources>
