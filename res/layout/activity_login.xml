@@ -11,6 +11,7 @@
 
     <EditText
         android:id="@+id/name_input"
+        android:textColor="#3567DD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name_label"
@@ -23,6 +24,7 @@
 
     <TextView
         android:id="@+id/password_label"
+        android:textColor="#3567DD"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_width="wrap_content"
@@ -34,6 +36,7 @@
 
     <EditText
         android:id="@+id/password_input"
+        android:textColor="#3567DD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -43,23 +46,16 @@
 
     <Button
         android:id="@+id/login_button"
+        android:background="@drawable/custom_button_selector"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/password_input"
         android:layout_alignTop="@+id/register_button"
         android:text="@string/login_button_text" />
 
-    <Button
-        android:id="@+id/register_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/name_input"
-        android:layout_below="@+id/password_input"
-        android:layout_marginTop="50dp"
-        android:text="@string/register_button_text" />
-
     <TextView
         android:id="@+id/name_label"
+        android:textColor="#3567DD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/password_label"
@@ -67,5 +63,15 @@
         android:layout_marginTop="49dp"
         android:text="@string/username_text"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/register_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/password_input"
+        android:layout_below="@+id/password_input"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/custom_button_selector"
+        android:text="@string/register_button_text" />
 
 </RelativeLayout>

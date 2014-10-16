@@ -7,17 +7,92 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.supergiftpresenter.AddGiftActivity"
-    android:background="#d2ff52"
     android:divider="?android:attr/dividerVertical"
 	android:orientation="vertical"
-	android:gravity="center_horizontal" >
+	android:padding="16dp"
+	android:gravity="center_horizontal"
+	android:background="@drawable/custom_background" >
 
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
-<TextView
+        android:text="@string/add_gift_title_text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/add_gift_title"
+        android:minWidth = "10dp"
+        android:maxWidth = "500dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:ems="10"
+        android:inputType="textPersonName" >
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_gift_description_text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/add_gift_description"
+        android:minWidth = "10dp"
+   		android:maxWidth = "500dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_gift_address_text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/add_gift_address"
+        android:minWidth = "10dp"
+        android:maxWidth = "500dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPostalAddress" />
+
+    <Button
+        android:id="@+id/add_image_button"
+        android:background="@drawable/custom_button_selector"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:text="@string/add_image_button_text" 
+        android:layout_marginTop="16dp" />
+    
+    <Button
+        android:id="@+id/add_location_button"
+        android:background="@drawable/custom_button_selector"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:text="@string/add_location_button_text" 
+        android:layout_marginTop="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/add_new_gift_button"
+            android:background="@drawable/custom_button_selector"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center"
+            android:text="@string/add_new_gift_button_text" 
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
 </LinearLayout>

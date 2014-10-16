@@ -160,4 +160,12 @@ public class GiftDetailFragment extends Fragment implements OnClickListener {
 			Toast.makeText(context, "show on map", Toast.LENGTH_SHORT).show();
 		}
 	}
+
+	@Override
+	public void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		Toast.makeText(context, "On resume", Toast.LENGTH_LONG).show();
+	}
+	
 }

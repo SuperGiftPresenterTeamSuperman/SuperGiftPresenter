@@ -51,7 +51,7 @@ public class GiftListActivity extends FragmentActivity implements
 		categoriesContainer = CategoriesContainer.getInstance();
 		giftsContainer = GiftsContainer.getInstance();
 		currentCategory = categoriesContainer.getCurrentCategory();
-		Toast.makeText(context, currentCategory.getTitle() + "  "+ categoriesContainer.getUsername(), Toast.LENGTH_LONG).show();
+		Toast.makeText(context, "Category " + currentCategory.getTitle() + "  selected", Toast.LENGTH_LONG).show();
 
 		if (findViewById(R.id.gift_detail_container) != null) {
 			mTwoPane = true;
@@ -78,9 +78,9 @@ public class GiftListActivity extends FragmentActivity implements
 		int id = item.getItemId();
 		if (id == R.id.add_gift_menu_button) {
 			Toast.makeText(context, "Add new gift", Toast.LENGTH_SHORT).show();
-			// TODO implement add new gift
-//			Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-//			startActivity(intent);
+			
+			Intent intent = new Intent(GiftListActivity.this, AddGiftActivity.class);
+			startActivity(intent);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

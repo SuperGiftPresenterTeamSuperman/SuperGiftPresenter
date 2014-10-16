@@ -8,5 +8,5 @@
     android:layout_marginRight="16dp"
     tools:context="com.supergiftpresenter.GiftListActivity"
     tools:layout="@android:layout/list_content"
-    android:background="#d2ff52" />
+    android:background="@drawable/custom_background" />
 

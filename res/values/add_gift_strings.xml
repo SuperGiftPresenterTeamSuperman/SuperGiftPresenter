@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add_gift_title_text"> Gift Title </string>
+    <string name="add_gift_description_text"> Gift Description </string>
+    <string name="add_gift_address_text"> Gift Address </string>
+    <string name="add_image_button_text"> Get Picture </string>
+    <string name="add_location_button_text"> Get Location </string>
+    <string name="add_new_gift_button_text"> Add New Gift Suggestion </string>
+    <string name="return_text">Return</string>
+</resources>

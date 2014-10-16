@@ -3,7 +3,7 @@
     tools:context="com.supergiftpresenter.GiftDetailFragment"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
-    android:background="#d2ff52">
+    android:background="@drawable/custom_background">
     
 	<LinearLayout 
 	    android:layout_width="match_parent"
@@ -71,6 +71,7 @@
         
         <Button
             android:id="@+id/detail_image_button"
+            android:background="@drawable/custom_button_selector"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -89,6 +90,7 @@
         
         <Button
             android:id="@+id/detail_location_button"
+            android:background="@drawable/custom_button_selector"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

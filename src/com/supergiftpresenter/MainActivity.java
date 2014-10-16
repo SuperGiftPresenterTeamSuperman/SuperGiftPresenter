@@ -70,7 +70,7 @@ public class MainActivity extends ActionBarActivity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				String catalogTitle = String.valueOf(adapter.getItem(position).getTitle());
-				Toast.makeText(context, "Category " + catalogTitle + " selected" , Toast.LENGTH_SHORT).show();
+				//Toast.makeText(context, "Category " + catalogTitle + " selected" , Toast.LENGTH_SHORT).show();
 				
 				Category category = (Category)adapter.getItem(position);
 				Intent intent = new Intent(MainActivity.this, GiftListActivity.class);

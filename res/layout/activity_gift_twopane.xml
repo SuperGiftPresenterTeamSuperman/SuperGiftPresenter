@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#d2ff52" >
+    android:background="@drawable/custom_background" >
 
     <ImageView
         android:id="@+id/category_avatar"
