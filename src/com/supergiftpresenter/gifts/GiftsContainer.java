@@ -83,7 +83,7 @@ public class GiftsContainer {
     	return (Gift[])giftsList.toArray(new Gift[giftsList.size()]);
     }
     
-    public Gift[] getAllGiftsInCategory(Category category) {
+    public ArrayList<Gift> getAllGiftsInCategory(Category category) {
     	ArrayList<Gift> list = new ArrayList<Gift>();
     	for (Gift giftItem : giftsList) {
 			if (giftItem.getCategory() == category) {
@@ -91,7 +91,7 @@ public class GiftsContainer {
 			}
 		}
     	
-    	return (Gift[])list.toArray(new Gift[list.size()]);
+    	return list;
     }
     public boolean removeAllGiftsInCategory(Category category) {
     	ArrayList<Gift> giftsToRemove = new ArrayList<Gift>();

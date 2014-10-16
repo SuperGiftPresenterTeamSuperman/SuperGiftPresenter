@@ -98,4 +98,8 @@ public class Gift {
 	public void setId(String id) {
 		this.id = id;
 	}
+	
+	public String toString() {
+		return String.format(" Id: %9s /n Title: %s /n Description: %s /n ", this.getId(), this.getTitle(), this.getDescription());
+	}
 }
