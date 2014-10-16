@@ -3,6 +3,7 @@ package com.supergiftpresenter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import com.supergiftpresenter.categories.CategoriesContainer;
 import com.supergiftpresenter.categories.CategoriesGridViewAdapter;
@@ -61,7 +62,7 @@ public class MainActivity extends ActionBarActivity {
 		welcome.setText("Welcome to SuperGift " + username);
 		
 		grid = (GridView)this.findViewById(R.id.catalog_view);	
-		Category[] array = categoriesContainer.getAllCategories();
+		ArrayList<Category> array = categoriesContainer.getAllCategories();
 		adapter = new CategoriesGridViewAdapter(this, array);
 		grid.setAdapter(adapter);
 		
@@ -72,8 +73,8 @@ public class MainActivity extends ActionBarActivity {
 				Toast.makeText(context, "Category " + catalogTitle + " selected" , Toast.LENGTH_SHORT).show();
 				
 				Category category = (Category)adapter.getItem(position);
-				Intent intent = new Intent(MainActivity.this, GiftsListActivity.class);
-				categoriesContainer.setCategory(category);
+				Intent intent = new Intent(MainActivity.this, GiftListActivity.class);
+				categoriesContainer.setCurrentCategory(category);
 				startActivity(intent);
 			}
 		});

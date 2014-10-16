@@ -2,6 +2,7 @@ package com.supergiftpresenter.categories;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 import android.content.Context;
 import android.content.res.AssetManager;
@@ -16,23 +17,23 @@ import android.widget.ImageView;
 
 public class CategoriesGridViewAdapter extends BaseAdapter{
 
-	public Category[] categoriesData;
+	public ArrayList<Category> categoriesData;
 	private Context mContext;
 	
-	public CategoriesGridViewAdapter(Context context, Category[] data) {
+	public CategoriesGridViewAdapter(Context context, ArrayList<Category> data) {
 		this.mContext = context;
 		this.categoriesData = data;
 	}
 	
 	@Override
 	public int getCount() {
-		return categoriesData.length;
+		return categoriesData.size();
 	}
 
 	@Override
 	public Category getItem(int position) {
 		// TODO Auto-generated method stub
-		return categoriesData[position];
+		return categoriesData.get(position);
 	}
 
 	@Override
@@ -43,7 +44,7 @@ public class CategoriesGridViewAdapter extends BaseAdapter{
 
 	@Override
 	public View getView(int position, View view, ViewGroup parent) {
-		Category category = categoriesData[position];
+		Category category = this.getItem(position);
 		Log.d("CATEGORIES VIEW", category.getTitle());
 		Bitmap categoryAvatar = this.getBitmapFromAssests(category.getTitle() + ".jpg");
 		if (categoryAvatar == null) {

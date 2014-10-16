@@ -1,17 +1,9 @@
 package com.supergiftpresenter.gifts;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
-import java.util.UUID;
-
-import android.R.integer;
-import android.R.string;
-import android.graphics.Bitmap;
 
 import com.supergiftpresenter.categories.CategoriesContainer;
 import com.supergiftpresenter.categories.Category;
@@ -23,15 +15,17 @@ public class GiftsContainer {
 	private CategoriesContainer categoriesContainer;
 	private RandomGiftGenerator generator;
 	private String username;
-	private Category category;
+	private Gift currentGift;
 	
 //    private Hashtable<String, Bitmap> giftPictures = new Hashtable<String, Bitmap>();
 //    private Hashtable<String, Bitmap> categoryPictures = new Hashtable<String, Bitmap>();
-//	private Hashtable<Category, List<Gift>> allGifts = new Hashtable<Category, List<Gift>>();
-	private static HashSet<Gift> giftsList = new HashSet<Gift>();
+	//private Hashtable<String, Gift> allGifts = new Hashtable<String, Gift>();
+	public static Map<String, Gift> giftsMap = new HashMap<String, Gift>();
+	private static ArrayList<Gift> giftsList = new ArrayList<Gift>();
 	private static final int GIFTS_COUNT = 50;
 	
 	private GiftsContainer() {
+		
 		categoriesContainer = CategoriesContainer.getInstance();
 		generator = RandomGiftGenerator.getInstance();
 		GenerateAllGifts();
@@ -53,6 +47,14 @@ public class GiftsContainer {
 		this.username = username;
 	}
 	
+	public Gift getCurrentGift() {
+		return currentGift;
+	}
+
+	public void setCurrentGift(Gift currentGift) {
+		this.currentGift = currentGift;
+	}
+	
 	// GIFTS
 	public String addGift(Gift gift) {
 		if (giftsList.contains(gift)) {
@@ -60,6 +62,7 @@ public class GiftsContainer {
 		}
 		
 		giftsList.add(gift);
+		giftsMap.put(gift.getId(), gift);
 		return "OK";
 		
 	}
@@ -71,9 +74,15 @@ public class GiftsContainer {
     	giftsList.remove(gift);
     	return "OK";
     }
+    
+    public ArrayList<Gift> getGifts () {
+    	return this.giftsList;
+    }
+    
     public Gift[] getAllGifts() {
     	return (Gift[])giftsList.toArray(new Gift[giftsList.size()]);
     }
+    
     public Gift[] getAllGiftsInCategory(Category category) {
     	ArrayList<Gift> list = new ArrayList<Gift>();
     	for (Gift giftItem : giftsList) {
@@ -91,6 +100,7 @@ public class GiftsContainer {
 				giftsToRemove.add(giftItem);
 			}
 		}
+    	
     	return giftsList.removeAll(giftsToRemove);
     }
     
@@ -106,13 +116,15 @@ public class GiftsContainer {
 	// TODO IMPLEMENT DATABASE USEAGE FOR THIS
 	private void GenerateAllGifts() {
 		Random randomGen = new Random();
-		Category[] categories = categoriesContainer.getAllCategories();
-		int categoriesCount = categories.length;
+		ArrayList<Category> categories = categoriesContainer.getAllCategories();
+		int categoriesCount = categories.size();
 		for (int i = 0; i < GIFTS_COUNT; i++) {
 			int index = randomGen.nextInt(categoriesCount);
-			Category category = categories[index];
+			Category category = categories.get(index);
 			Gift gift = generator.generateGift(category);
 			giftsList.add(gift);
+			// TODO refactor
+			giftsMap.put(gift.getId(), gift);
 		}
 	}
 }

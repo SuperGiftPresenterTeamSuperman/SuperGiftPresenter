@@ -1,19 +1,18 @@
 package com.supergiftpresenter.categories;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Iterator;
 
 public class CategoriesContainer {
 	private static CategoriesContainer instance;
 	private String username;
-	private Category category;
+	private Category currentCategory;
 	
 //    private Hashtable<String, Bitmap> giftPictures = new Hashtable<String, Bitmap>();
 //    private Hashtable<String, Bitmap> categoryPictures = new Hashtable<String, Bitmap>();
 //	private Hashtable<Category, List<Gift>> allGifts = new Hashtable<Category, List<Gift>>();
 	
-	private static HashSet<Category> categoriesList = new HashSet<Category>();
+	private static ArrayList<Category> categoriesList = new ArrayList<Category>();
 	
 	private CategoriesContainer() {
 		GenerateAllCategories();
@@ -36,12 +35,12 @@ public class CategoriesContainer {
 	}    
 
     // CATEGORIES
-	public Category getCategory() {
-		return category;
+	public Category getCurrentCategory() {
+		return this.currentCategory;
 	}
 	
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setCurrentCategory(Category category) {
+		this.currentCategory = category;
 	}
 	
 	public Category getCategoryById(String id) {
@@ -72,12 +71,16 @@ public class CategoriesContainer {
     	return "OK";
     }
     
-	public Category[] getAllCategories() {
+	public ArrayList<Category> getAllCategories() {
+    	return this.categoriesList;
+    }
+	
+	public Category[] getCategoriesAsArray() {
     	return (Category[])categoriesList.toArray(new Category[categoriesList.size()]);
     }
 
 	private void GenerateAllCategories() {
-		categoriesList = new HashSet<Category>(Arrays.asList(
+		categoriesList = new ArrayList<Category>(Arrays.asList(
 			new Category("anniversary"),
 			new Category("birthday"),
 			new Category("christening"),
