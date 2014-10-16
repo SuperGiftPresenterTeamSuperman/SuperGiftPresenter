@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <string name="username_register">Username</string>
+   <string name="password_register">Password</string>
+   <string name="confirm_register">Confirm Password</string>
+   <string name="reg_button_register">Register</string>
+</resources>

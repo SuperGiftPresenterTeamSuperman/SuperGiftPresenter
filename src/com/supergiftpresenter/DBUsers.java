@@ -19,7 +19,7 @@ public class DBUsers extends SQLiteDBHelper{
 		this.db.insert("users", null, cv);
 	}
 	
-	public String getUser(String userName)
+	public String getPassword(String userName)
 	{
 		Cursor cursor=db.query("USERS", null, " USERNAME=?", new String[]{userName}, null, null, null);
         if(cursor.getCount()<1) // UserName Not Exist
@@ -31,6 +31,13 @@ public class DBUsers extends SQLiteDBHelper{
 		String password= cursor.getString(cursor.getColumnIndex("PASSWORD"));
 		cursor.close();
 		return password;				
+	}
+	
+	public Boolean userExists(String username){
+		 Cursor cursor = db.rawQuery("SELECT 1 FROM "+ "USERS"+" WHERE "+ "USERNAME" +"=?", new String[] {username});
+		    boolean exists = cursor.moveToFirst();
+		    cursor.close();
+		    return exists;
 	}
 	
 	public void  updateEntry(String userName,String password)

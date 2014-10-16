@@ -3,12 +3,15 @@ package com.supergiftpresenter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class LoginActivity extends ActionBarActivity implements OnClickListener {
 	private Button loginButton;
@@ -19,10 +22,14 @@ public class LoginActivity extends ActionBarActivity implements OnClickListener 
 	
 	private Context context = this;
 	
+	private DBUsers dbUsers;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
+		
+		dbUsers = new DBUsers(context);
 		
 		loginButton = (Button) findViewById(R.id.login_button);
 		registerButton = (Button) findViewById(R.id.register_button);
@@ -33,34 +40,57 @@ public class LoginActivity extends ActionBarActivity implements OnClickListener 
 		loginButton.setOnClickListener(this);
 		registerButton.setOnClickListener(this);
 	}
+	
+	private boolean isNetworkAvailable() {
+	     ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+	     NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+	     return activeNetworkInfo != null; 
+	}
 
 	public void onClick(View v) {
+		
+		if (!isNetworkAvailable()) {
+			Toast.makeText(context, "No Internet Connection", Toast.LENGTH_SHORT).show();
+			return;
+		}
+		
 		int buttonID = v.getId();
 		String username = usernameInput.getText().toString();
 		String password = passwordInput.getText().toString();
+		String storedPassword = dbUsers.getPassword(username);
+		
 		if (buttonID == R.id.login_button) {
-			// LOG IN
-			// MAKE ALL VALIDATIONS FOR LOGIN
-			// TODO CHECK PASSWORD AND USERNAME
-			// TODO CHECK FOR INTERNET CONNECTION AND WARN IF NO CONNECTION
-			
-			if (username == null || username =="") {
-				// TODO show notification to input password
-				username = "Unknown";
+						
+			if (username == null || username.equals("")) {
+				Toast warning = Toast.makeText(this, "Enter Username", Toast.LENGTH_LONG);
+				warning.show();
+				return;
 			}
 			
-			if (password == null || password =="") {
-				// TODO show notification to input password
+			if (password == null || password.equals("")) {
+				Toast warning = Toast.makeText(this, "Enter Password", Toast.LENGTH_LONG);
+				warning.show();
+				return;
+			}
+			
+			if(password.equals(storedPassword))
+			{
+				
+				Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+				intent.putExtra("username", username);
+				this.startActivity(intent);
+			}
+			else
+			{
+				Toast warning =Toast.makeText(this, "User Name or Password does not match", Toast.LENGTH_LONG);
+				warning.show();
+				return;
 			}
 			
 			
-			Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-			intent.putExtra("username", username);
-			this.startActivity(intent);
 		} else if (buttonID == R.id.register_button) {
-			// Make validations for register
-			// TODO CHECK PASSWORD AND USERNAME
-			// TODO CHECK FOR INTERNET CONNECTION AND WARN IF NO CONNECTION
+			Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+			this.startActivity(intent);
 		}
 	}
 }
