@@ -1,5 +1,6 @@
 package com.supergiftpresenter;
 
+import com.supergiftpresenter.categories.CategoriesContainer;
 import com.supergiftpresenter.gifts.Gift;
 import com.supergiftpresenter.gifts.GiftsContainer;
 
@@ -35,6 +36,7 @@ public class GiftDetailFragment extends Fragment implements OnClickListener {
 
 	// The dummy content this fragment is presenting.
 	private GiftsContainer giftsContainer;
+	private CategoriesContainer categoriesContainer;
 	private Gift mItem;
 	private TextView noInfoView;
 	private TextView authorTextView;
@@ -57,7 +59,8 @@ public class GiftDetailFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		giftsContainer = giftsContainer.getInstance();
+		giftsContainer = GiftsContainer.getInstance();
+		categoriesContainer = categoriesContainer.getInstance();
 
 		if (getArguments().containsKey(ARG_ITEM_ID)) {
 			//mItem = GiftsContainer.giftsMap.get(getArguments().getString(ARG_ITEM_ID));
@@ -71,7 +74,7 @@ public class GiftDetailFragment extends Fragment implements OnClickListener {
 		initializeViews(rootView);
 		if (mItem != null) {
 			// TODO change if has picture
-			mItem.setPicture(BitmapFactory.decodeResource(getResources(), R.drawable.supergift));
+			mItem.setPicture(categoriesContainer.getCurrentCategory().getPicture());
 			Location location = mItem.getLocation();
 			Bitmap image = mItem.getPicture();
 			setViewsVisibility(true, image != null, location != null);
@@ -159,13 +162,5 @@ public class GiftDetailFragment extends Fragment implements OnClickListener {
 		if (v.getId() == R.id.detail_location_button) {
 			Toast.makeText(context, "show on map", Toast.LENGTH_SHORT).show();
 		}
-	}
-
-	@Override
-	public void onResume() {
-		// TODO Auto-generated method stub
-		super.onResume();
-		Toast.makeText(context, "On resume", Toast.LENGTH_LONG).show();
-	}
-	
+	}	
 }

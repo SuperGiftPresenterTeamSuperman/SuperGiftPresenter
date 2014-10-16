@@ -1,5 +1,7 @@
 package com.supergiftpresenter;
 
+import com.supergiftpresenter.gifts.GiftsContainer;
+
 import android.support.v7.app.ActionBarActivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -18,6 +20,7 @@ public class ImageTouchActivity extends ActionBarActivity implements OnTouchList
 
 	public static PointF mid = new PointF();
 	
+	private GiftsContainer giftsContainer;
 	private ImageView motionImage;
 	private static final String TAG = "Touch" ;
 	// These matrices will be used to move and zoom image
@@ -41,7 +44,10 @@ public class ImageTouchActivity extends ActionBarActivity implements OnTouchList
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 	    setContentView(R.layout.activity_image_touch);
+	    giftsContainer = GiftsContainer.getInstance();
 	    motionImage = (ImageView) findViewById(R.id.image_touch);
+	    
+	    motionImage.setImageBitmap(giftsContainer.getCurrentGift().getPicture());
 	    motionImage.setOnTouchListener(this);
 	}
 
