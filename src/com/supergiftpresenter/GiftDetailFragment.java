@@ -160,7 +160,11 @@ public class GiftDetailFragment extends Fragment implements OnClickListener {
 			startActivity(intent);
 		}
 		if (v.getId() == R.id.detail_location_button) {
-			Toast.makeText(context, "show on map", Toast.LENGTH_SHORT).show();
+			Location locate = mItem.getLocation();
+			
+			Toast.makeText(context,
+					String.format("Longitude: %f /n Latitude: %f", locate.getLongitude(), locate.getLatitude() ), 
+					Toast.LENGTH_SHORT).show();
 		}
 	}	
 }
